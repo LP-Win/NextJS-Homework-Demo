@@ -1,9 +1,14 @@
-import Link from "next/link";
-import {loadpost} from "@/lib/data/fetchPost";
-import {Cards} from "@/components/Cards";
+"use client"
 
-export default async function Page() {
-    const posts = await loadpost()
+import {use} from "react";
+import Link from "next/link";
+import {Cards} from "@/components/Cards";
+import {PostResponse} from "@/lib/types/posts";
+
+export  default function CardClientList ({loadPost}: {loadPost: Promise<PostResponse[]>}) {
+    // Use the hook to consume the promise
+    const posts = use(loadPost)
+    console.log(posts)
     return (
         <>
             <div className="p-4">

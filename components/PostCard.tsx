@@ -1,5 +1,5 @@
 
-import { PostResponse } from "../lib/posts";
+import { PostResponse } from "../lib/types/posts";
 
 export default function PostCard({
   userId = 0, 
